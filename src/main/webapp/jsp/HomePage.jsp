@@ -14,25 +14,33 @@
     <title>Killer Home</title>
     <link rel="stylesheet" href="../css/basic.css">
     <style type="text/css">
+        #cont1 {
+            padding-bottom: 2px;
+        }
         #ban1 {
             height: 85px;
             width: 100%;
         }
 
         #nav1 {
-            height: 20px;
+            height: 50px;
             width: 100%;
         }
 
         #nav2 {
             background-color: #4043ff;
-            height: 12px;
+            height: 22px;
             width: 100%;
         }
         #cont2 {
             background-color: #b9c8c8;
-            margin: 2px 0;
+            margin: 2px;
+            width: 162px;
         }
+        #commit-button {
+            width: 160px;
+        }
+
     </style>
 </head>
 <body>
@@ -52,7 +60,7 @@
             </label>
         </div>
         <div id="commit" class="block">
-            <button id="m=commit-button">Commit</button>
+            <button id="commit-button">Commit</button>
         </div>
     </div>
 </div>

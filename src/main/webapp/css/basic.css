@@ -3,16 +3,14 @@
 }
 
 .block {
-    position: absolute;
     background-color: #a0d0f5;
-    margin: 2px;
 }
 
 .navigation {
     background-color: #3f95ff;
-    margin: 2px;
+    margin: 2px 0;
 }
 
 .banner {
-    margin: 2px;
+    background-color: aqua;
 }
