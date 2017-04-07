@@ -39,6 +39,10 @@
         }
         #commit-button {
             width: 160px;
+            text-align: center;
+            font-size: x-large;
+            background-color: #a0d0f5;
+            font-family: "AR PL UMing CN", serif;
         }
 
     </style>
@@ -59,8 +63,9 @@
                 <input type="text" id="passWord" name="Password"/>
             </label>
         </div>
-        <div id="commit" class="block">
-            <button id="commit-button">Commit</button>
+        <div id="commit-button" class="block">
+            Commit
+            <%--<button id="commit-button">Commit</button>--%>
         </div>
     </div>
 </div>
