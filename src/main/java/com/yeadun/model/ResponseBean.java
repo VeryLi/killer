@@ -1,0 +1,1 @@
+package com.yeadun.model;public class ResponseBean {}

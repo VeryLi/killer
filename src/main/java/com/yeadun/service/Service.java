@@ -1,0 +1,1 @@
+package com.yeadun.service;public interface Service {}

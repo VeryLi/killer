@@ -1,0 +1,1 @@
+package com.yeadun.model.channel;public class ChannelBean {}
