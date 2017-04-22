@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.killer</groupId>
-    <artifactId>com.killer</artifactId>
-    <version>1.0</version>
+    <groupId>com.yeadun</groupId>
+    <artifactId>yeadun-api</artifactId>
+    <version>1.0.0</version>
     <packaging>war</packaging>
 
     <properties>
@@ -18,20 +18,26 @@
         <slf4j.version>1.7.21</slf4j.version>
         <fasterxml.jackson.version>2.8.6</fasterxml.jackson.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
+        <httpclient.version>4.5.2</httpclient.version>
+        <fluent-hc.version>4.5.3</fluent-hc.version>
+        <jdom.version>1.0</jdom.version>
+        <org.dom4j.version>2.0.0</org.dom4j.version>
+        <fastjson.version>1.2.31</fastjson.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
     </properties>
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>test</id>
             <properties>
-                <profiles.active>dev</profiles.active>
+                <profiles.active>test</profiles.active>
             </properties>
         </profile>
 
         <profile>
-            <id>release</id>
+            <id>product</id>
             <properties>
-                <profiles.active>release</profiles.active>
+                <profiles.active>product</profiles.active>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -41,6 +47,36 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${org.dom4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jdom</groupId>
+                <artifactId>jdom</artifactId>
+                <version>${jdom.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>fluent-hc</artifactId>
+                <version>${fluent-hc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -126,13 +162,11 @@
                 <artifactId>jackson-databind</artifactId>
                 <version>${fasterxml.jackson.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
                 <version>${fasterxml.jackson.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -161,23 +195,6 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
         </dependency>
@@ -197,18 +214,19 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
     </dependencies>
     <build>
+        <finalName>yeadun-api-${project.version}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources/${profiles.active}</directory>
             </resource>
             <resource>
-                <directory>src/main/resources/conf</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
-                </includes>
+                <directory>src/main/resources</directory>
             </resource>
             <resource>
                 <directory>src/main/java</directory>

@@ -1,0 +1,1 @@
+package com.yeadun.service.channel;public interface ChannelSrv {}

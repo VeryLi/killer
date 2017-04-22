@@ -10,7 +10,7 @@
     <!-- 整个上下文配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:killer-context.xml</param-value>
+        <param-value>classpath:product/yeadun-api-context.xml</param-value>
     </context-param>
 
     <!-- Spring核心上下文配置 -->
@@ -29,7 +29,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:killer-servlet.xml</param-value>
+            <param-value>classpath:product/yeadun-api-servlet.xml</param-value>
         </init-param>
     </servlet>
     <!-- 配置Servlet拦截器 -->

@@ -1,8 +1,11 @@
 <?xml version="1.0"?>
+<!--
+  生产环境 - logback配置
+-->
 <configuration>
-    <property name="LOG_HOME" value="log"/>
+    <property name="LOG_HOME" value="${catalina.base}"/>
     <!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
-    <appender name="console-dev" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>[%-5level] %d{HH:mm:ss.SSS} [%thread] %logger{36} - %msg%n</pattern>
         </encoder>
@@ -11,7 +14,7 @@
     <!-- ch.qos.logback.core.rolling.RollingFileAppender 文件日志输出 -->
     <appender name="file"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${LOG_HOME}/killer.log</File>
+        <File>${LOG_HOME}/yeadun-api.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <FileNamePattern>${LOG_HOME}/killer.log.%d{yyyy-MM-dd}.%i</FileNamePattern>
             <maxFileSize>10MB</maxFileSize>
@@ -26,6 +29,6 @@
     <root>
         <level value="info"/>
         <appender-ref ref="file"/>
-        <appender-ref ref="console-dev"/>
+        <appender-ref ref="console"/>
     </root>
 </configuration>
